@@ -36,10 +36,18 @@ class BinomialHeap<K> {
      */
     boolean isHeap()
     {
-        if (children.getFirst(children) == null)
-        {
+        PList<BinomialHeap<K>> curr_PList = children;
+        boolean heap = true;
 
+        while (curr_PList != null)
+        {
+            //Checks if the child's data is <= to the parent's key
+            heap = heap && lessEq.test(PList.getFirst(curr_PList).key, this.key) && PList.getFirst(curr_PList).isHeap();
+
+            curr_PList = PList.getNext(curr_PList);
         }
+
+        return heap;
     }
 
     public String toString() {
@@ -82,11 +90,27 @@ public class BinomialQueue<K> {
      * The isHeap method returns whether or not the Binomial Queue (a forest of Binomial Trees)
      * satisfies the heap property.
      */
-    public boolean isHeap() {
-        return false;  // replace this line with your code
+    public boolean isHeap()
+    {
+        PList<BinomialHeap<K>> curr_PList = forest;
+        boolean heap = true;
+
+        while (curr_PList != null)
+        {
+            //Checks if the child's data is <= to the parent's key
+            heap = heap && lessEq.test(PList.getFirst(curr_PList).key, PList.getFirst(forest).key) && PList.getFirst(curr_PList).isHeap();
+
+            if (!heap)
+                break;
+
+            curr_PList = PList.getNext(curr_PList);
+        }
+
+        return heap;
     }
 
-    public String toString() {
+    public String toString()
+    {
         if (this.forest == null)
             return "";
         else
@@ -109,7 +133,8 @@ public class BinomialQueue<K> {
      * @return A new binomial forest that includes the new node.
      */
     static <K> PList<BinomialHeap<K>>
-    insert(BinomialHeap<K> n, PList<BinomialHeap<K>> ns) {
+    insert(BinomialHeap<K> n, PList<BinomialHeap<K>> ns)
+    {
         return null;  // replace this line with your code
     }
 
@@ -124,7 +149,8 @@ public class BinomialQueue<K> {
      * @return A list that is sorted and contains all and only the elements in ns1 and ns2.
      */
     static <K> PList<BinomialHeap<K>>
-    merge(PList<BinomialHeap<K>> ns1, PList<BinomialHeap<K>> ns2) {
+    merge(PList<BinomialHeap<K>> ns1, PList<BinomialHeap<K>> ns2)
+    {
         return null;  // replace this line with your code
     }
     
