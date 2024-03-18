@@ -34,8 +34,12 @@ class BinomialHeap<K> {
      * The isHeap method checks whether or not the subtree of this node
      * satisfies the heap property.
      */
-    boolean isHeap() {
-        return false;  // replace this line with your code
+    boolean isHeap()
+    {
+        if (children.getFirst(children) == null)
+        {
+
+        }
     }
 
     public String toString() {
