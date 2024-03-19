@@ -135,7 +135,13 @@ public class BinomialQueue<K> {
     static <K> PList<BinomialHeap<K>>
     insert(BinomialHeap<K> n, PList<BinomialHeap<K>> ns)
     {
-        return null;  // replace this line with your code
+        PList<BinomialHeap<K>> out;
+        BinomialHeap<K> cur = PList.getFirst(ns);
+
+        if (ns == null)
+        {
+            PList.addFront(n, out);
+        }
     }
 
     /**
