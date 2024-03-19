@@ -98,10 +98,7 @@ public class BinomialQueue<K> {
         while (curr_PList != null)
         {
             //Checks if the child's data is <= to the parent's key
-            heap = heap && lessEq.test(PList.getFirst(curr_PList).key, PList.getFirst(forest).key) && PList.getFirst(curr_PList).isHeap();
-
-            if (!heap)
-                break;
+            heap = heap && PList.getFirst(curr_PList).isHeap();
 
             curr_PList = PList.getNext(curr_PList);
         }
@@ -135,12 +132,26 @@ public class BinomialQueue<K> {
     static <K> PList<BinomialHeap<K>>
     insert(BinomialHeap<K> n, PList<BinomialHeap<K>> ns)
     {
-        PList<BinomialHeap<K>> out;
-        BinomialHeap<K> cur = PList.getFirst(ns);
+        //The input heap is null, so return the original forest
+        if (n == null)
+            return ns;
 
+        //The forest is empty, so create a new forest with the input heap
         if (ns == null)
+            return PList.addFront(n, null);
+
+        if (n.height < PList.getFirst(ns).height)
+            return PList.addFront(n, ns);
+
+        else if (n.height == PList.getFirst(ns).height)
         {
-            PList.addFront(n, out);
+            return insert(n.link(PList.getFirst(ns)), PList.getNext(ns));
+        }
+
+        else
+        {
+            //Recursively insert the heap into the rest of the forest
+            return PList.addFront(PList.getFirst(ns), insert(n, PList.getNext(ns)));
         }
     }
 
@@ -157,7 +168,55 @@ public class BinomialQueue<K> {
     static <K> PList<BinomialHeap<K>>
     merge(PList<BinomialHeap<K>> ns1, PList<BinomialHeap<K>> ns2)
     {
-        return null;  // replace this line with your code
+        if (ns1 == null)
+            return ns2;
+
+        if (ns2 == null)
+            return ns1;
+
+        return merge(PList.getNext(ns1), insert(PList.getFirst(ns1), ns2));
+
+//        while (ns1 != null && ns2 != null)
+//        {
+//            if (PList.getFirst(ns1).height < PList.getFirst(ns2).height)
+//            {
+//                if (result == null)
+//                {
+//                    result = ns1;
+//                    tail = ns1;
+//                }
+//
+//                else
+//                {
+//                    //PList.getNext(tail) = ns1;
+//                    tail = PList.getNext(tail);
+//                }
+//
+//                ns1 = PList.getNext(ns1);
+//            }
+//
+//            else if (PList.getFirst(ns2).height < PList.getFirst(ns1).height)
+//            {
+//                if (result == null)
+//                {
+//                    result = ns2;
+//                    tail = ns2;
+//                }
+//
+//                else
+//                {
+//                    //PList.getNext(tail) = ns2;
+//                    tail = PList.getNext(tail);
+//                }
+//
+//                ns2 = PList.getNext(ns2);
+//            }
+//
+//            else
+//            {
+//                BinomialHeap<>
+//            }
+//        }
     }
     
 }
