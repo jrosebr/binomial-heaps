@@ -175,48 +175,6 @@ public class BinomialQueue<K> {
             return ns1;
 
         return merge(PList.getNext(ns1), insert(PList.getFirst(ns1), ns2));
-
-//        while (ns1 != null && ns2 != null)
-//        {
-//            if (PList.getFirst(ns1).height < PList.getFirst(ns2).height)
-//            {
-//                if (result == null)
-//                {
-//                    result = ns1;
-//                    tail = ns1;
-//                }
-//
-//                else
-//                {
-//                    //PList.getNext(tail) = ns1;
-//                    tail = PList.getNext(tail);
-//                }
-//
-//                ns1 = PList.getNext(ns1);
-//            }
-//
-//            else if (PList.getFirst(ns2).height < PList.getFirst(ns1).height)
-//            {
-//                if (result == null)
-//                {
-//                    result = ns2;
-//                    tail = ns2;
-//                }
-//
-//                else
-//                {
-//                    //PList.getNext(tail) = ns2;
-//                    tail = PList.getNext(tail);
-//                }
-//
-//                ns2 = PList.getNext(ns2);
-//            }
-//
-//            else
-//            {
-//                BinomialHeap<>
-//            }
-//        }
     }
     
 }
