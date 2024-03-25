@@ -137,16 +137,14 @@ public class BinomialQueue<K> {
             return ns;
 
         //The forest is empty, so create a new forest with the input heap
-        if (ns == null)
+        else if (ns == null)
             return PList.addFront(n, null);
 
-        if (n.height < PList.getFirst(ns).height)
+        else if (n.height < PList.getFirst(ns).height)
             return PList.addFront(n, ns);
 
         else if (n.height == PList.getFirst(ns).height)
-        {
             return insert(n.link(PList.getFirst(ns)), PList.getNext(ns));
-        }
 
         else
         {
@@ -171,7 +169,7 @@ public class BinomialQueue<K> {
         if (ns1 == null)
             return ns2;
 
-        if (ns2 == null)
+        else if (ns2 == null)
             return ns1;
 
         return merge(PList.getNext(ns1), insert(PList.getFirst(ns1), ns2));

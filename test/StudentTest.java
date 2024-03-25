@@ -162,29 +162,6 @@ public class StudentTest {
         }
     }
 
-//    @Test
-//    public void testInsertHigherHeightNode()
-//    {
-//        BinomialHeap<Integer> n = new BinomialHeap<>(7, 4, null, lessEq);
-//
-//        BinomialHeap R1 = new BinomialHeap(1, 0, null, lessEq);
-//        BinomialHeap R2 = new BinomialHeap(2, 1, null, lessEq);
-//        BinomialHeap R3 = new BinomialHeap(3, 2, null, lessEq);
-//        BinomialHeap R4 = new BinomialHeap(4, 3, null, lessEq);
-//
-//        PList<BinomialHeap<Integer>> forest = new PList<BinomialHeap<Integer>>(R1, null);
-//
-//        forest = BinomialQueue.insert(R2, forest);
-//        forest = BinomialQueue.insert(R3, forest);
-//        forest = BinomialQueue.insert(R4, forest);
-//
-//        BinomialHeap<Integer> duplicate = new BinomialHeap<>(5, 1, null, lessEq);
-//
-//        forest = BinomialQueue.insert(duplicate, forest);
-//
-//        assertTrue(forest.isHeap());
-//    }
-
     @Test
     public void test() throws Exception
     {
